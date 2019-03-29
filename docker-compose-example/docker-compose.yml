@@ -1,0 +1,17 @@
+version: "3"
+services:
+    node_docker:
+        build: .
+        container_name: node_docker
+        ports: 
+            - "8080:3000"
+        volumes:
+            - "./code:/home/app/code"
+    db:
+        container_name: db
+        image: mongo:3.4.1
+        restart: always
+        ports:
+            - "27217:27217"
+        volumes:
+            - "./db:/data/db"
